@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <title>ToDoList</title>
+  </head>
+  <body>
+    <div id="content">
+      <form id="form">
+        <div id="formArea">
+          <div class="element">
+            <label class="labelForm">Name:</label> <br />
+            <input class="input name" type="text" name="name" /><br />
+          </div>
+          <div class="element">
+            <label class="labelForm">Date:</label><br />
+            <input class="input date" type="date" name="date" /><br />
+          </div>
+          <div class="element">
+            <label class="labelForm">Task:</label><br />
+            <input class="input task" type="text" name="task" /><br />
+          </div>
+        </div>
+        <div class="buttonArea">
+          <input class="button" type="submit" value="Submit" />
+        </div>
+      </form>
+
+      <ul id="taskList">
+        <li class="items">
+          <div class="infoArea">
+            <div class="item">
+              <div class="labelTaskList">Name:</div>
+              <div class="labelInfoTaskList name">1</div>
+            </div>
+            <div class="item">
+              <div class="labelTaskList">Date:</div>
+              <div class="labelInfoTaskList date">1</div>
+            </div>
+            <div class="item">
+              <div class="labelTaskList">Task:</div>
+              <div class="labelInfoTaskList task">1</div>
+            </div>
+          </div>
+          <div class="optionArea">
+            <label class="status">⇓</label>
+            <label class="delete">X</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

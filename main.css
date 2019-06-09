@@ -1,0 +1,140 @@
+body {
+  font-family: "PT Sans Narrow", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: rgb(255, 255, 255);
+  background: white;
+  overflow: hidden;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+#content {
+  width: 70%;
+  height: 100vh;
+  margin: auto;
+}
+
+/*Form*/
+#form {
+  margin-top: 5px;
+  padding: 10px;
+  background: rgb(250, 150, 150, 0.8);
+  border-radius: 10%;
+  border-bottom: 3px rgb(71, 26, 51) solid;
+}
+
+.element {
+  background: rgba(133, 53, 68, 0.5);
+  width: 80%;
+  padding: 10px;
+  margin: 10px auto 10px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.labelForm {
+  font-size: 120%;
+  width: 100px;
+}
+
+.input {
+  width: 200px;
+}
+
+.buttonArea {
+  text-align: center;
+}
+
+.button {
+  width: 20%;
+  background: rgba(133, 53, 68, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 20%;
+  border-color: rgba(133, 53, 68, 0.5);
+  font-size: 120%;
+  text-align: center;
+}
+.button:hover {
+  background: rgba(51, 24, 29, 0.5);
+}
+
+/*List*/
+#taskList {
+  margin-top: 5px;
+  padding: 10px;
+  background: rgba(189, 129, 129, 0.8);
+  border-radius: 5%;
+  border: 3px rgb(49, 14, 14) solid;
+  height: 56vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.items {
+  background: rgba(133, 53, 68, 0.5);
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoArea {
+  display: block;
+  width: 95%;
+}
+
+.item {
+  background: rgba(133, 53, 68, 0.5);
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.labelTaskList {
+  border: rgb(68, 26, 26) 1px solid;
+  width: 20%;
+  border-radius: 10%;
+}
+
+.labelInfoTaskList {
+  width: 80%;
+  margin-left: 10px;
+}
+
+.optionArea {
+  color: white;
+  margin-bottom: 20px;
+}
+.status {
+  border: 1px white solid;
+}
+
+.delete {
+  border: 1px white solid;
+}
+
+/*Responsive Layout*/
+
+@media screen and (max-width: 500px) {
+  .input {
+    width: 90%;
+  }
+  .button {
+    width: 40%;
+  }
+
+  .infoArea {
+    width: 80%;
+  }
+  .labelTaskList {
+    width: 30%;
+  }
+  .labelInfoTaskList {
+    width: 70%;
+  }
+}
