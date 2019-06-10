@@ -1,12 +1,18 @@
 let form = document.getElementById("form");
 let close = document.getElementsByClassName("delete");
 let itemList = document.getElementById("taskList");
+let filter = document.getElementById("filter");
+let status = document.getElementById("status");
+let edit = document.getElementById("edit");
 
-form.addEventListener("submit", createNewElement);
-itemList.addEventListener("click", RemoveElement);
-// Create Item
+form.addEventListener("submit", CreateNewTask);
+itemList.addEventListener("click", RemoveTask);
+filter.addEventListener("keyup", FilterTasksByName);
+status.addEventListener("click", ChooseStatus);
+itemList.addEventListener("click", EditTask);
 
-function createNewElement(e) {
+// Create Element
+function CreateNewTask(e) {
   e.preventDefault();
 
   let name = document.querySelector(".input.name").value;
@@ -39,9 +45,9 @@ function createNewElement(e) {
   let listNameArea = document.createElement("div");
   let listDateArea = document.createElement("div");
   let listTaskArea = document.createElement("div");
-  listNameArea.className = "labelInfoTaskList";
-  listDateArea.className = "labelInfoTaskList";
-  listTaskArea.className = "labelInfoTaskList";
+  listNameArea.className = "labelInfoTaskList name";
+  listDateArea.className = "labelInfoTaskList date";
+  listTaskArea.className = "labelInfoTaskList task";
   listNameArea.appendChild(document.createTextNode(name));
   listDateArea.appendChild(document.createTextNode(date));
   listTaskArea.appendChild(document.createTextNode(task));
@@ -67,67 +73,73 @@ function createNewElement(e) {
   }
 
   //Option Area
+  let edit = document.createElement("button");
+  edit.className = "edit";
+  edit.id = "edit";
+  edit.appendChild(document.createTextNode("*"));
+  optionArea.appendChild(edit);
+
   let status = document.createElement("button");
   status.className = "status";
+  status.id = "status";
   status.appendChild(document.createTextNode("⇓"));
   optionArea.appendChild(status);
 
   let del = document.createElement("button");
   del.className = "delete";
   del.appendChild(document.createTextNode("X"));
-  console.log(del);
-  console.log(close);
   optionArea.appendChild(del);
-  arr.push(del);
 }
 
-//Remove Item
-
-function RemoveElement(e) {
+//Remove Element
+function RemoveTask(e) {
   if (e.target.classList.contains("delete")) {
     var li = e.target.parentElement.parentElement;
     itemList.removeChild(li);
   }
 }
 
-/*const rootOfFile = document.querySelector("#root");
-
-interface TodoItem: {
-  name: string;
-  task: string;
-  date: string;
+//Filter Elements
+function FilterTasksByName(e) {
+  // convert text to lowercase
+  let text = e.target.value.toLowerCase();
+  // Get lis
+  let items = itemList.getElementsByTagName("li");
+  // Convert to an array
+  Array.from(items).forEach(function(item) {
+    //Get name
+    let itemName = item.querySelector(".labelInfoTaskList.name").firstChild
+      .textContent;
+    if (itemName.toLowerCase().indexOf(text) != -1) {
+      item.style.display = "flex";
+    } else {
+      item.style.display = "none";
+    }
+  });
 }
 
-const todoItemList = [];
-
-function addTodo(name, task, date) {
-  todoItemList.push({ name, task, date });
-}
-
-function initialize() {
-  addTodo("demo", "fix", "2018-08-08");
-}
-
-function renderTodo(todoItem) {
-  const div = document.createElement("div");
-  const str = `Title: ${todoItem.name}, ${todoItem.task}, ${todoItem.date}`;
-
-  const text = document.createTextNode(str);
-  div.appendChild(text);
-  div.appendChild(document.createElement("br"));
-
-  return div;
-}
-
-function renderAdd() {}
-
-function renderAll() {
-  for (let k in todoItemList) {
-    const v = todoItemList[k];
-    const todo = renderTodo(v);
-    root.appendChild(todo);
+//Edit Task
+function EditTask(e) {
+  if (e.target.className === "edit") {
+    let elements = this.parentElement.parentElement.querySelectorAll(
+      ".labelInfoTaskList"
+    );
+    let namesOfElements = this.parentElement.parentElement.querySelectorAll(
+      ".labelTaskList"
+    );
+    Array.from(elements).forEach(function(element) {
+      console.log(element);
+      if (element.className == "labelInfoTaskList name") {
+        document.querySelector(".input.name").value = element.innerHTML;
+      }
+      if (element.className == "labelInfoTaskList date") {
+        document.querySelector(".input.date").value = element.innerHTML;
+      }
+      if (element.className == "labelInfoTaskList task") {
+        document.querySelector(".input.task").value = element.innerHTML;
+      }
+    });
   }
 }
-
-initialize();
-renderAll();*/
+//Choose Status
+function ChooseStatus(e) {}

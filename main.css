@@ -46,6 +46,10 @@ li {
 }
 
 .buttonArea {
+  width: 82%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
   text-align: center;
 }
 
@@ -53,7 +57,7 @@ li {
   width: 20%;
   background: rgba(133, 53, 68, 0.5);
   color: white;
-  padding: 10px;
+  padding: 5px;
   border-radius: 20%;
   border-color: rgba(133, 53, 68, 0.5);
   font-size: 120%;
@@ -61,6 +65,12 @@ li {
 }
 .button:hover {
   background: rgba(51, 24, 29, 0.5);
+}
+
+#filter {
+  height: 20px;
+  width: 25%;
+  margin-top: 5px;
 }
 
 /*List*/
@@ -107,15 +117,25 @@ li {
 }
 
 .optionArea {
+  display: flex;
+  height: 5%;
+  width: 10%;
   color: white;
   margin-bottom: 20px;
 }
 .status {
-  border: 1px white solid;
+  border: 1px black solid;
+  background: rgb(161, 17, 17);
 }
 
 .delete {
-  border: 1px white solid;
+  border: 1px black solid;
+  background: rgb(161, 17, 17);
+}
+
+.edit {
+  border: 1px black solid;
+  background: rgb(161, 17, 17);
 }
 
 /*Responsive Layout*/
@@ -128,8 +148,17 @@ li {
     width: 40%;
   }
 
+  #filter {
+    height: 20px;
+    width: 40%;
+  }
+
   .infoArea {
     width: 80%;
+  }
+
+  .optionArea {
+    width: 25%;
   }
   .labelTaskList {
     width: 30%;
